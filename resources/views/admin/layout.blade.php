@@ -46,8 +46,8 @@
                         Master Data
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/kategori">Kategori</a>
-                        <a class="dropdown-item" href="/menu">Menu</a>
+                        <a class="dropdown-item" href="/category">Kategori</a>
+                        <a class="dropdown-item" href="/barang">Barang</a>
                     </div>
                 </li>
             </ul>
