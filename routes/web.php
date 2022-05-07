@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::match(['post', 'get'], '/', [\App\Http\Controllers\AuthController::class, 'login']);
+Route::get('/', [\App\Http\Controllers\Member\HomepageController::class, 'index']);
+Route::match(['post', 'get'], '/login-admin', [\App\Http\Controllers\AuthController::class, 'login']);
 Route::get('/logout', [\App\Http\Controllers\AuthController::class, 'logout']);
 Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index']);
 
@@ -41,5 +42,14 @@ Route::group(['prefix' => 'category'], function () {
     Route::get( '/edit/{id}', [\App\Http\Controllers\Admin\CategoryController::class, 'edit_page']);
     Route::post( '/patch', [\App\Http\Controllers\Admin\CategoryController::class, 'patch']);
     Route::post( '/delete', [\App\Http\Controllers\Admin\CategoryController::class, 'destroy']);
+});
+
+Route::group(['prefix' => 'barang'], function () {
+    Route::get( '/', [\App\Http\Controllers\Admin\BarangController::class, 'index']);
+    Route::get( '/tambah', [\App\Http\Controllers\Admin\BarangController::class, 'add_page']);
+    Route::post( '/create', [\App\Http\Controllers\Admin\BarangController::class, 'create']);
+    Route::get( '/edit/{id}', [\App\Http\Controllers\Admin\BarangController::class, 'edit_page']);
+    Route::post( '/patch', [\App\Http\Controllers\Admin\BarangController::class, 'patch']);
+    Route::post( '/delete', [\App\Http\Controllers\Admin\BarangController::class, 'destroy']);
 });
 

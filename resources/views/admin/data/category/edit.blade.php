@@ -38,7 +38,7 @@
                                 @csrf
                                 <input type="hidden" name="id" value="{{ $data->id }}">
                                 <div class="w-100 mb-1">
-                                    <label for="nama" class="form-label">Username</label>
+                                    <label for="nama" class="form-label">Nama Kategori</label>
                                     <input type="text" class="form-control" id="nama" placeholder="Nama Kategori"
                                            name="nama" value="{{ $data->nama }}">
                                 </div>
