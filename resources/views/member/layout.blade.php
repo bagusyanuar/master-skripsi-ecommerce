@@ -54,10 +54,21 @@
                 </li>
             </ul>
             <div class="d-flex align-items-center">
-                <a href="/login" class="navbar-item f-12">
-                    <i class="fa fa-user-o mr-2"></i>
-                    <span>Masuk / Daftar</span>
-                </a>
+                @guest()
+                    <a href="/login-member" class="navbar-item f-12">
+                        <i class="fa fa-user-o mr-2"></i>
+                        <span>Masuk / Daftar</span>
+                    </a>
+                @endguest
+                @auth()
+                    <a href="/cart" class="navbar-item f-12">
+                        <i class="fa fa-shopping-cart mr-2"></i>
+                    </a>
+                    <a href="/logout" class="navbar-item f-12 ml-3">
+                        <i class="fa fa-power-off mr-1"></i>
+                        <span>Keluar</span>
+                    </a>
+                @endauth
             </div>
         </div>
     </div>

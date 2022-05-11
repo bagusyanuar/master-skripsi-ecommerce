@@ -13,10 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', [\App\Http\Controllers\Member\HomepageController::class, 'index']);
+Route::match(['post', 'get'], '/login-member', [\App\Http\Controllers\AuthController::class, 'login_member']);
+Route::match(['post', 'get'], '/register', [\App\Http\Controllers\AuthController::class, 'register']);
 Route::match(['post', 'get'], '/login-admin', [\App\Http\Controllers\AuthController::class, 'login']);
 Route::get('/logout', [\App\Http\Controllers\AuthController::class, 'logout']);
 Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index']);
 
+
+Route::get('/product/{id}', [\App\Http\Controllers\Member\HomepageController::class, 'product_page']);
 Route::group(['prefix' => 'admin'], function () {
     Route::get( '/', [\App\Http\Controllers\Admin\AdminController::class, 'index']);
     Route::get( '/tambah', [\App\Http\Controllers\Admin\AdminController::class, 'add_page']);

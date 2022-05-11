@@ -13,27 +13,46 @@
             </div>
         </div>
     </div>
-    <div class="pl-5 pl-5 pt-2 pb-2">
+    <div class="pl-5 pl-5 pt-2 pb-2 mt-3">
         <div class="row w-100">
             <div class="col-lg-2">
-                Filter
+                <p class="font-weight-bold">Kategori</p>
+                <ul class="list-group">
+                    @foreach($categories as $category)
+                        <a href="/">
+                            <li class="list-group-item">{{ $category->nama }}</li>
+                        </a>
+                    @endforeach
+                </ul>
             </div>
             <div class="col-lg-10">
                 <div class="row">
-                    @for($i = 0; $i < 10; $i++)
-                    <div class="col-lg-3 col-md-4">
-                        <div class="card">
-                            <img class="card-img-top" src="..." alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                    @foreach($data as $v)
+                        <div class="col-lg-3 col-md-4 mb-4">
+                            <div class="card card-item" data-id="{{ $v->id }}" style="cursor: pointer">
+                                <img class="card-img-top" src="{{ asset('/assets/barang'). "/" . $v->gambar }}"
+                                     alt="Card image cap" height="150">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $v->nama }}</h5>
+                                    <p class="card-text">Rp. {{ $v->harga }}</p>
+                                    <a href="#" class="btn btn-sm btn-primary">Tambah Keranjang</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    @endfor
+                    @endforeach
                 </div>
             </div>
         </div>
     </div>
+@endsection
+
+@section('js')
+    <script>
+        $(document).ready(function () {
+            $('.card-item').on('click', function () {
+                let id = this.dataset.id;
+                window.location.href = '/product/' + id;
+            });
+        });
+    </script>
 @endsection
