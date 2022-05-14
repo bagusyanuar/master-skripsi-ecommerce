@@ -20,7 +20,10 @@ Route::get('/logout', [\App\Http\Controllers\AuthController::class, 'logout']);
 Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index']);
 
 
-Route::get('/product/{id}', [\App\Http\Controllers\Member\HomepageController::class, 'product_page']);
+Route::get('/product/{id}/detail', [\App\Http\Controllers\Member\HomepageController::class, 'product_page']);
+Route::get('/product/data', [\App\Http\Controllers\Member\ProductController::class, 'get_product_by_name']);
+
+
 Route::group(['prefix' => 'admin'], function () {
     Route::get( '/', [\App\Http\Controllers\Admin\AdminController::class, 'index']);
     Route::get( '/tambah', [\App\Http\Controllers\Admin\AdminController::class, 'add_page']);

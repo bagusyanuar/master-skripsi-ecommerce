@@ -8,6 +8,7 @@
     height: 70px;
     object-fit: contain;
 }
+
 .f-bold {
     font-weight: bold;
 }
@@ -61,6 +62,7 @@
     top: 0;
     left: 0;
 }
+
 .banner-item {
     object-fit: fill !important;
     height: 300px !important;
@@ -71,4 +73,15 @@
     font-size: 30px;
     color: white;
     font-weight: bold;
+}
+
+.panel-product {
+    min-height: 600px;
+}
+
+.product-detail {
+    background-color: #ffffff;
+    border: solid 1px #ffffff;
+    border-radius: 10px;
+    padding: 20px;
 }

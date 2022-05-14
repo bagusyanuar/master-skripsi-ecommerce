@@ -112,6 +112,7 @@
         });
     });
 </script>
+<script src="{{ asset('/js/helper.js') }}"></script>
 @yield('js')
 </body>
 </html>
